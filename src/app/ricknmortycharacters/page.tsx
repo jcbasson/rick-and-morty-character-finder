@@ -66,7 +66,7 @@ const RickAndMortyCharacters = () => {
 
   const characters = data?.characters.results || [];
   const info = data?.characters.info;
-  console.log("JC got here");
+
   return (
     <Box px={4} pb={8} mt={6}>
       <CharactersGrid characters={characters} />
