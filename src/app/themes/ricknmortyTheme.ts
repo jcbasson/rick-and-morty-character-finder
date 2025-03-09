@@ -11,10 +11,15 @@ const theme = extendTheme({
         backgroundImage: "url('/portal-bg.png')",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
+        backgroundColor: "background",
+      },
+      html: {
+        backgroundColor: "background",
       },
     },
   },
   colors: {
+    background: "#010000",
     brand: {
       500: "#97ce4c", // Rick's portal green
     },

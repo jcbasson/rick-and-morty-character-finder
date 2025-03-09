@@ -6,10 +6,10 @@ import Providers from "./providers";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Box as="html" backgroundColor="#010000" lang="en">
-      <Box as="body" backgroundColor="#010000">
+    <Box as="html" lang="en">
+      <Box as="body">
         <Providers>
-          <Container maxW="container.xl" p={0} backgroundColor="#010000">
+          <Container maxW="container.xl" p={0}>
             <VStack spacing={6}>
               <Box position="relative" width="100%" height="300px">
                 <Box
