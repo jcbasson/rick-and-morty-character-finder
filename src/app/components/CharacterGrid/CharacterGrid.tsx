@@ -6,7 +6,6 @@ import {
   Center,
   Flex,
   Grid,
-  Heading,
   HStack,
   Text,
   useToast,
@@ -20,6 +19,7 @@ import {
   GET_CHARACTERS,
 } from "../graphql/queries";
 import CharacterCard from "../CharacterCard";
+import Error from "../Error";
 
 const CharacterGrid = () => {
   const [page, setPage] = useState(1);
@@ -72,32 +72,7 @@ const CharacterGrid = () => {
 
   // Error state with refresh option
   if (error && !data) {
-    return (
-      <Center flexDirection="column" h="50vh" data-cy="error-message">
-        <Image
-          src="/morty-panic.png"
-          alt="Morty Panicking"
-          height="150px"
-          mb={4}
-        />
-        <Heading size="md" mb={4} color="red.500">
-          Oh jeez! Something went wrong!
-        </Heading>
-        <Text mb={4} color="white">
-          {error.message}
-        </Text>
-        <Button
-          colorScheme="teal"
-          onClick={() => refetch()}
-          variant="rickStyle"
-          leftIcon={
-            <Image src="/portal-gun.png" alt="Portal Gun" height="20px" />
-          }
-        >
-          Try Again
-        </Button>
-      </Center>
-    );
+    return <Error message={error.message} retry={() => refetch()} />;
   }
 
   const characters = data?.characters.results || [];
@@ -129,7 +104,6 @@ const CharacterGrid = () => {
         </Center>
       )}
 
-      {/* Pagination controls */}
       <Flex
         mb={8}
         justifyContent="center"

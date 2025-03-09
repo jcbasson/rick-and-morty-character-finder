@@ -9,8 +9,8 @@ const client = new ApolloClient({
       Query: {
         fields: {
           characters: {
-            // Create a single cache across all pages for characters regardless of what query variables are used
-            keyArgs: false,
+            // Cache records by page number, if the data changes regularly then set this to false
+            keyArgs: ["page"],
             // Merge already retrieved data with newly fetched data
             merge(existing = { results: [] }, incoming) {
               return {
