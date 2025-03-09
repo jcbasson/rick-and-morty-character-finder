@@ -1,9 +1,13 @@
 "use client";
 
+import Providers from "./providers";
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 };

@@ -2,6 +2,7 @@
 
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import CharacterGrid from "./components/CharacterGrid";
 
 const Home = () => {
   return (
@@ -47,14 +48,12 @@ const Home = () => {
           </Heading>
         </Box>
       </Box>
-
-      {/* Description box */}
       <Text
+        mx={4}
         textAlign="center"
         fontSize="lg"
         color="gray.300"
         maxW="container.md"
-        mx="auto"
         px={4}
         py={3}
         borderRadius="md"
@@ -67,6 +66,14 @@ const Home = () => {
         </Box>{" "}
         Explore characters from across the multiverse. Don&apos;t get too
         attached Morty, they&apos;re just data from an API.
+      </Text>
+
+      <Box px={4} pb={8} mt={6}>
+        <CharacterGrid />
+      </Box>
+
+      <Text textAlign="center" fontSize="sm" color="gray.500" mt={6} mb={10}>
+        Powered by the Rick and Morty API - wubba lubba dub dub!
       </Text>
     </Container>
   );
