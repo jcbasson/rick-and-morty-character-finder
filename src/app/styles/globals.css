@@ -1,0 +1,48 @@
+/* styles/globals.css */
+@font-face {
+  font-family: "Get Schwifty";
+  src: url("/fonts/get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.portal-title {
+  text-shadow: 0 0 5px #97ce4c, 0 0 10px #97ce4c;
+  letter-spacing: 1px;
+}
+
+/* Add some animation for the portal effect */
+@keyframes portalPulse {
+  0% {
+    box-shadow: 0 0 5px 2px #3bec97;
+  }
+  50% {
+    box-shadow: 0 0 15px 5px #3bec97;
+  }
+  100% {
+    box-shadow: 0 0 5px 2px #3bec97;
+  }
+}
+
+.portal-card {
+  animation: portalPulse 3s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3bec97;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #32a674;
+}
