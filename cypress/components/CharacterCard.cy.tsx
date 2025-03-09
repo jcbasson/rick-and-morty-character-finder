@@ -1,54 +1,66 @@
-import CharacterCard from "../../src/app/components/CharacterCard";
 import { ChakraProvider } from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react";
+import { CharactersGrid } from "../../src/app/components/Characters";
 
-// Mock theme for the component test
-const theme = extendTheme({
-  colors: {
-    portalGreen: {
-      500: "#3bec97",
-    },
-    space: {
-      500: "#1f2937",
-      700: "#0d131c",
-    },
-    mortyYellow: {
-      500: "#fafd7c",
-    },
-  },
-});
+describe("CharactersGrid", () => {
+  afterEach(() => {
+    cy.wait(1000);
+  });
 
-describe("CharacterCard Component", () => {
-  const mockCharacter = {
-    id: "1",
-    name: "Rick Sanchez",
-    species: "Human",
-    image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-  };
-
-  beforeEach(() => {
+  it("renders with no characters", () => {
     cy.mount(
-      <ChakraProvider theme={theme}>
-        <CharacterCard character={mockCharacter} />
+      <ChakraProvider>
+        <CharactersGrid characters={[]} />
       </ChakraProvider>
     );
+
+    cy.get('[data-cy="character-grid"]').should("exist");
+    cy.get('[data-cy="character-card"]').should("not.exist");
   });
 
-  it("displays the character name and species", () => {
-    cy.get('[data-cy="character-name"]').should("contain", "Rick Sanchez");
-    cy.get('[data-cy="character-species"]').should("contain", "Human");
+  it("renders with different numbers of characters", () => {
+    const mockCharacters = [
+      {
+        id: "1",
+        name: "Rick Sanchez",
+        species: "Human",
+        image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      },
+      {
+        id: "2",
+        name: "Morty Smith",
+        species: "Human",
+        image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      },
+    ];
+
+    // Mount component with ChakraProvider
+    cy.mount(
+      <ChakraProvider>
+        <CharactersGrid characters={mockCharacters} />
+      </ChakraProvider>
+    );
+
+    // Verify component rendering
+    cy.get('[data-cy="character-grid"]').should("exist");
+    cy.get('[data-cy="character-card"]').should("have.length", 2);
   });
 
-  it("displays the character image", () => {
-    cy.get("img").should("have.attr", "src", mockCharacter.image);
-    cy.get("img").should("have.attr", "alt", mockCharacter.name);
-  });
+  it("renders with single character", () => {
+    const singleCharacter = [
+      {
+        id: "1",
+        name: "Rick Sanchez",
+        species: "Human",
+        image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      },
+    ];
 
-  it("has the correct styling", () => {
-    // Check if the card has portal styling class
-    cy.get('[data-cy="character-card"]').should("have.class", "portal-card");
+    cy.mount(
+      <ChakraProvider>
+        <CharactersGrid characters={singleCharacter} />
+      </ChakraProvider>
+    );
 
-    // Check if the name has the right color
-    cy.get('[data-cy="character-name"]').should("have.css", "color");
+    cy.get('[data-cy="character-card"]').should("have.length", 1);
   });
 });

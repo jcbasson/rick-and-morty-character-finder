@@ -1,6 +1,6 @@
 "use client";
 import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
-import { Character } from "../graphql/queries";
+import { Character } from "../../graphql/queries/getCharacters";
 
 interface CharacterCardProps {
   character: Character;

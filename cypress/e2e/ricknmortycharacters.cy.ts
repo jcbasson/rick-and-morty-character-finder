@@ -1,7 +1,7 @@
-describe("Rick and Morty Character Portal", () => {
+describe("Rick and Morty Characters", () => {
   beforeEach(() => {
     // Visit the application
-    cy.visit("/");
+    cy.visit("/ricknmortycharacters");
   });
 
   it("displays the header with the correct title", () => {
