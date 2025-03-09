@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "cypress": "npm run dev & sleep 10 && cypress open"
   },
   "dependencies": {
     "@apollo/client": "^3.13.3",

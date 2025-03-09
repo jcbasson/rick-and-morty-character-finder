@@ -1,5 +1,4 @@
 "use client";
-
 import { Button, Center, Heading, Text } from "@chakra-ui/react";
 
 interface ErrorProps {
