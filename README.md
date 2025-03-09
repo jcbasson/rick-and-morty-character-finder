@@ -2,15 +2,24 @@
 
 ## Getting Started
 
-First, run the development server:
+Installation
 
 ```bash
 npm install
 ```
+
+Run application
 
 ```bash
 npm run dev
 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/ricknmortycharacters](http://localhost:3000/ricknmortycharacters) with your browser to see the result.
+
+Run Cypress tests
+
+```bash
+npm run cypress
+
+```
