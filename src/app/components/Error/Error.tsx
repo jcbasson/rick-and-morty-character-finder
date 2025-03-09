@@ -1,12 +1,19 @@
-import { Button, Center, Heading, Text, Image } from "@chakra-ui/react";
+"use client";
+
+import { Button, Center, Heading, Text } from "@chakra-ui/react";
 
 interface ErrorProps {
   message: string;
   retry: () => void;
 }
 const Error = ({ message, retry }: ErrorProps) => (
-  <Center flexDirection="column" h="50vh" data-cy="error-message">
-    <Image src="/morty-panic.png" alt="Morty Panicking" height="150px" mb={4} />
+  <Center
+    display="flex"
+    flexDirection="column"
+    width="100%"
+    alignSelf="center"
+    data-cy="error-message"
+  >
     <Heading size="md" mb={4} color="red.500">
       Oh jeez! Something went wrong!
     </Heading>
@@ -14,10 +21,10 @@ const Error = ({ message, retry }: ErrorProps) => (
       {message}
     </Text>
     <Button
-      colorScheme="teal"
+      backgroundColor="white"
+      color="black"
       onClick={retry}
       variant="rickStyle"
-      leftIcon={<Image src="/portal-gun.png" alt="Portal Gun" height="20px" />}
     >
       Try Again
     </Button>
