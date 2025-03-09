@@ -1,14 +1,13 @@
-// pages/_app.tsx
+"use client";
+
 import { ChakraProvider } from "@chakra-ui/react";
 import { ApolloProvider } from "@apollo/client";
 import type { AppProps } from "next/app";
 import apolloClient from "../../../apollo-client";
 import "../styles/globals.css";
-import theme from "../themes/ricknmortyTheme";
+import theme from "./ricknmortyTheme";
 
-// Customize the Chakra UI theme with Rick and Morty inspired colors
-
-function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ApolloProvider client={apolloClient}>
       <ChakraProvider theme={theme}>
@@ -16,6 +15,6 @@ function App({ Component, pageProps }: AppProps) {
       </ChakraProvider>
     </ApolloProvider>
   );
-}
+};
 
 export default App;
