@@ -1,4 +1,4 @@
-Rick n Morty Character Finder
+# Rick n Morty Character Finder
 
 ## Getting Started
 
