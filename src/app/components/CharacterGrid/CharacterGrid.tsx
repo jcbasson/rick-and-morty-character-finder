@@ -33,7 +33,6 @@ const CharacterGrid = () => {
     notifyOnNetworkStatusChange: true,
   });
 
-  // Error handling with user-friendly toast notifications
   useEffect(() => {
     if (error) {
       toast({

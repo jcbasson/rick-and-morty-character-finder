@@ -55,7 +55,7 @@ const Home = () => {
           textAlign="center"
           fontSize="lg"
           color="gray.300"
-          maxW="container.md"
+          width="100%"
           px={4}
           py={3}
           borderRadius="md"
