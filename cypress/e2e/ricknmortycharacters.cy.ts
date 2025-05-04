@@ -72,6 +72,10 @@ describe("Rick and Morty Character Finder", () => {
     cy.visit("/ricknmortycharacters");
   });
 
+  afterEach(() => {
+    cy.wait(1000);
+  });
+
   context("Layout Components", () => {
     it("should display the header with correct title", () => {
       cy.get('[data-cy="page-title"]')

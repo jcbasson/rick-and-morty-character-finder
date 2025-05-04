@@ -21,7 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   width="100%"
                 >
                   <Image
-                    src="/portal.gif"
+                    src="/portal.png"
                     alt="Portal"
                     fill
                     style={{
@@ -46,7 +46,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     className="portal-title"
                     fontFamily="'Get Schwifty', sans-serif"
                     color="mortyYellow.500"
-                    textShadow="0 0 10px #97ce4c, 0 0 15px #97ce4c"
+                    textShadow={`0 0 10px #97ce4c, 0 0 15px #97ce4c`}
                   >
                     Rick n Morty
                   </Heading>

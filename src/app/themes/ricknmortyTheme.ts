@@ -37,6 +37,7 @@ const theme = extendTheme({
       500: "#1f2937", // Dark space color for cards
       600: "#151e29",
       700: "#0d131c",
+      800: "#151216",
     },
   },
   components: {
