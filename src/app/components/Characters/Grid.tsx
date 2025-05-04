@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Grid } from "@chakra-ui/react";
+import { v4 as uuidv4 } from "uuid";
 import { Character } from "../../graphql/queries/getCharacters";
 import CharacterCard from "./Card";
 
@@ -24,7 +25,7 @@ const CharactersGrid = ({ characters }: CharactersGridProps) => {
         data-cy="character-grid"
       >
         {characters.map((character: Character) => (
-          <CharacterCard key={character.id} character={character} />
+          <CharacterCard key={character.id + uuidv4()} character={character} />
         ))}
       </Grid>
     </Box>

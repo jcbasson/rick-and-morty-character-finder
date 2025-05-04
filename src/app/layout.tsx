@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { Box, Container, Heading, Text, VStack } from "@chakra-ui/react";
 import Providers from "./providers";
+import Link from "next/link";
+import { ROUTES } from "./constants/routes";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -38,38 +40,26 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   padding={4}
                   width="100%"
                 >
-                  <Heading
-                    as="h1"
-                    size="2xl"
-                    textAlign="center"
-                    data-cy="page-title"
-                    className="portal-title"
-                    fontFamily="'Get Schwifty', sans-serif"
-                    color="mortyYellow.500"
-                    textShadow={`0 0 10px #97ce4c, 0 0 15px #97ce4c`}
+                  <Link
+                    href={ROUTES.RICK_N_MORTY_CHARACTERS}
+                    style={{ textDecoration: "none" }}
                   >
-                    Rick n Morty
-                  </Heading>
+                    <Heading
+                      as="h1"
+                      size="2xl"
+                      textAlign="center"
+                      data-cy="page-title"
+                      className="portal-title"
+                      fontFamily="'Get Schwifty', sans-serif"
+                      color="mortyYellow.500"
+                      textShadow={`0 0 10px #97ce4c, 0 0 15px #97ce4c`}
+                    >
+                      Rick n Morty Character Finder
+                    </Heading>
+                  </Link>
                 </Box>
               </Box>
-              <Text
-                mx={4}
-                textAlign="center"
-                fontSize="lg"
-                color="gray.300"
-                px={4}
-                py={3}
-                borderRadius="md"
-                bg="space.600"
-                borderWidth="1px"
-                borderColor="portalGreen.500"
-              >
-                <Box as="span" color="portalGreen.500" fontWeight="bold">
-                  *burp*
-                </Box>{" "}
-                Explore characters from across the multiverse. Don&apos;t get
-                too attached Morty, they&apos;re just data from an API.
-              </Text>
+
               {children}
               <Text
                 textAlign="center"
